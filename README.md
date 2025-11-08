@@ -15,12 +15,14 @@ Clause uses advanced AI to analyze rental leases and medical bills, identifying 
 ## ✨ Key Features
 
 ### Design & User Experience
+
 - **Liquid Glass Design** - Modern, iOS 18-inspired UI with translucent surfaces and warm gradients
 - **Dark & Light Modes** - Fully designed themes with distinct identities
 - **Consumer-Friendly** - Warm, approachable, and trustworthy interface
 - **Responsive** - Optimized for desktop and mobile devices
 
 ### Core Functionality
+
 - **Document Upload & Analysis** - Upload leases or medical bills for AI-powered analysis
 - **Document Workspace** - Dedicated workspace for each document with document-scoped AI chat
 - **Case Management** - Track your cases, monitor progress, and manage recovery efforts
@@ -30,6 +32,7 @@ Clause uses advanced AI to analyze rental leases and medical bills, identifying 
 - **Results Dashboard** - Beautiful results page with key findings and suggested next steps
 
 ### Technical Features
+
 - **Next.js 15** - Latest Next.js features with App Router
 - **TypeScript** - Full type safety throughout the application
 - **Tailwind CSS** - Custom warm color palette and liquid glass utilities
@@ -58,54 +61,17 @@ cd Clause_frontend
 npm install
 ```
 
-Or if you're using Yarn:
-
-```bash
-yarn install
-```
-
 3. **Start the development server**
 
 ```bash
 npm run dev
 ```
 
-Or with Yarn:
-
-```bash
-yarn dev
-```
 
 4. **Open your browser**
 
 Navigate to [http://localhost:3000](http://localhost:3000) to see the app.
 
-## 📁 Project Structure
-
-```
-clause/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── (home)/            # Dashboard and home pages
-│   │   ├── analysis/          # Document analysis view
-│   │   ├── auth/              # Authentication pages
-│   │   ├── cases/             # Case management pages
-│   │   ├── policies/          # Policies & Documents Hub
-│   │   ├── results/           # Results pages
-│   │   ├── upload/            # Document upload flow
-│   │   └── welcome/           # Landing page
-│   ├── components/            # React components
-│   │   ├── Layouts/          # Sidebar, Header, etc.
-│   │   ├── Modals/           # Modal components
-│   │   ├── MockActivity/     # Mock activity components
-│   │   └── ...
-│   ├── data/                 # Mock data
-│   ├── css/                  # Global styles
-│   └── ...
-├── public/                    # Static assets
-├── tailwind.config.ts        # Tailwind configuration
-└── package.json
-```
 
 ## 🎨 Design System
 
@@ -122,6 +88,7 @@ The app uses a warm, consumer-friendly color palette:
 ### Liquid Glass
 
 Liquid glass surfaces are created using:
+
 - Translucent backgrounds with `backdrop-blur`
 - Soft inner shadows and highlights
 - Rounded corners (pill and blob shapes)
@@ -176,16 +143,19 @@ See `src/data/mockData.ts` for the full mock data structure.
 ## 🎯 Key Components
 
 ### Modals
+
 - `AnalysisPreviewModal` - Preview analysis results
 - `GenerateLetterModal` - Generate demand letters
 - `CreateCaseModal` - Create new cases
 
 ### Layout Components
+
 - `Sidebar` - Main navigation with liquid glass styling
 - `Header` - Top bar with search and theme toggle
 - `Logo` - Free Money branding with sparkles icon
 
 ### Mock Activity
+
 - `RecentActivity` - Recent activity feed
 - `ApiStatusBadges` - API connection status indicators
 
@@ -210,4 +180,3 @@ For support, email support@clause.app or open an issue in the GitHub repository.
 ---
 
 **Made with ❤️ for tenants and patients in Massachusetts**
-
