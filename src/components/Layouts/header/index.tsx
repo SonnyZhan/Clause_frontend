@@ -37,7 +37,7 @@ export function Header() {
           Dashboard
         </h1>
         <p className="font-medium text-dark-5 dark:text-dark-6">
-          AI-Powered Contract Analysis
+          Fine Print, Finally Fair
         </p>
       </div>
 
