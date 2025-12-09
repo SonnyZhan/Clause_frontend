@@ -1,3 +1,5 @@
+"use client";
+
 import "@/css/satoshi.css";
 import "@/css/style.css";
 
@@ -7,23 +9,17 @@ import "flatpickr/dist/flatpickr.min.css";
 import "jsvectormap/dist/jsvectormap.css";
 
 import { Header } from "@/components/Layouts/header";
-import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 import type { PropsWithChildren } from "react";
 import { Providers } from "./providers";
 import SplashScreenProvider from "@/components/SplashScreenProvider";
-
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Clause - Fine Print, Finally Fair",
-    default: "Clause - Fine Print, Finally Fair",
-  },
-  description:
-    "AI-powered lease analyzer for rental agreements in Massachusetts. Spot illegal clauses, calculate what you're owed, and generate demand letters.",
-};
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  const pathname = usePathname();
+  const isAuthPage = pathname?.startsWith("/auth");
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -40,19 +36,25 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body suppressHydrationWarning>
         <Providers>
           <SplashScreenProvider>
-            <NextTopLoader color="#FF9578" showSpinner={false} />
+            <NextTopLoader color="#FF5722" showSpinner={false} />
 
-            <div className="flex min-h-screen">
-              <Sidebar />
+            {isAuthPage ? (
+              /* Just render children for auth pages */
+              <div className="min-h-screen">{children}</div>
+            ) : (
+              /* Full layout with sidebar and header for app pages */
+              <div className="flex min-h-screen">
+                <Sidebar />
 
-              <div className="w-full bg-transparent">
-                <Header />
+                <div className="w-full bg-transparent">
+                  <Header />
 
-                <main className="isolate mx-auto w-full max-w-screen-2xl overflow-hidden px-4 py-6 md:px-6 md:py-8 2xl:px-10 2xl:py-12">
-                  {children}
-                </main>
+                  <main className="isolate mx-auto w-full max-w-screen-2xl overflow-hidden px-4 py-6 md:px-6 md:py-8 2xl:px-10 2xl:py-12">
+                    {children}
+                  </main>
+                </div>
               </div>
-            </div>
+            )}
           </SplashScreenProvider>
         </Providers>
       </body>

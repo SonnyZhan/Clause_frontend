@@ -6,9 +6,11 @@ import { MenuIcon } from "./icons";
 import { Notification } from "./notification";
 import { ThemeToggleSwitch } from "./theme-toggle";
 import { UserInfo } from "./user-info";
+import { useAuth } from "@/lib/auth";
 
 export function Header() {
   const { toggleSidebar, isMobile } = useSidebarContext();
+  const { user } = useAuth();
 
   return (
     <header className="border-peach-200/30 shadow-soft-2 dark:border-coral-500/20 sticky top-0 z-30 mx-4 mt-4 flex items-center justify-between rounded-2xl border bg-white/40 px-6 py-4 backdrop-blur-2xl dark:bg-white/5 md:px-8 2xl:px-12">
@@ -34,10 +36,10 @@ export function Header() {
 
       <div className="max-xl:hidden">
         <h1 className="mb-0.5 text-heading-5 font-bold text-dark dark:text-white">
-          Dashboard
+          {user?.role === 'clinic' ? 'Clinic Dashboard' : user?.role === 'tenant' ? 'Tenant Dashboard' : 'Dashboard'}
         </h1>
         <p className="font-medium text-dark-5 dark:text-dark-6">
-          Fine Print, Finally Fair
+          {user?.role === 'clinic' ? 'Manage your cases and team' : 'Fine Print, Finally Fair'}
         </p>
       </div>
 

@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
-import { NAV_DATA } from "./data";
+import { NAV_DATA, TENANT_NAV_DATA, CLINIC_NAV_DATA } from "./data/index";
 import { ArrowLeftIcon, ChevronUp, SparklesIcon } from "./icons";
 import * as Icons from "./icons";
 import { MenuItem } from "./menu-item";
 import { useSidebarContext } from "./sidebar-context";
 import { api, type ChatRequest, type ChatResponse } from "@/lib/api";
 import toast from "react-hot-toast";
+import { useAuth } from "@/lib/auth";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -20,6 +21,14 @@ export function Sidebar() {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatInput, setChatInput] = useState("");
+  const { user } = useAuth();
+
+  const navigationData = user?.role === 'clinic' 
+    ? CLINIC_NAV_DATA 
+    : user?.role === 'tenant' 
+      ? TENANT_NAV_DATA 
+      : NAV_DATA;
+
   const [chatMessages, setChatMessages] = useState<
     Array<{
       role: "user" | "ai";
@@ -86,7 +95,7 @@ export function Sidebar() {
 
   useEffect(() => {
     // Keep collapsible open, when it's subpage is active
-    NAV_DATA.some((section) => {
+    navigationData.some((section) => {
       return section.items.some((item) => {
         if (item.items && Array.isArray(item.items) && item.items.length > 0) {
           return item.items.some((subItem: any) => {
@@ -156,7 +165,7 @@ export function Sidebar() {
 
           {/* Navigation */}
           <div className="custom-scrollbar mt-6 flex-1 overflow-y-auto pr-3 min-[850px]:mt-10">
-            {NAV_DATA.map((section) => (
+            {navigationData.map((section) => (
               <div key={section.label} className="mb-6">
                 <h2 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
                   {section.label}

@@ -18,7 +18,7 @@ const config: Config = {
         current: "currentColor",
         transparent: "transparent",
         white: "#FFFFFF",
-        primary: "#DA7C8B", // Warm Orchid
+        primary: "#FF5722", // Vibrant Orange
         // Warm consumer-friendly palette
         peach: {
           50: "#FFF5F0",

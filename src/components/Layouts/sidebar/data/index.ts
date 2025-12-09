@@ -1,37 +1,31 @@
 import * as Icons from "../icons";
 
-export const NAV_DATA = [
+export const TENANT_NAV_DATA = [
   {
     label: "MAIN MENU",
     items: [
       {
-        title: "Dashboard",
+        title: "My Dashboard",
         icon: Icons.HomeIcon,
-        url: "/",
+        url: "/tenant/dashboard",
         items: [],
       },
       {
-        title: "Upload & Analyze",
+        title: "Upload New Lease",
         icon: Icons.UploadIcon,
-        url: "/upload",
+        url: "/tenant/upload",
         items: [],
       },
       {
-        title: "Cases",
+        title: "My Cases",
         icon: Icons.CasesIcon,
-        url: "/cases",
+        url: "/tenant/cases",
         items: [],
       },
       {
-        title: "Policies Library",
-        icon: Icons.PoliciesIcon,
-        url: "/policies",
-        items: [],
-      },
-      {
-        title: "Notifications",
-        icon: Icons.NotificationIcon,
-        url: "/notifications",
+        title: "Messages",
+        icon: Icons.ChatIcon,
+        url: "/tenant/messages",
         items: [],
       },
     ],
@@ -40,13 +34,13 @@ export const NAV_DATA = [
     label: "SUPPORT",
     items: [
       {
-        title: "Account Settings",
+        title: "Settings",
         icon: Icons.SecurityIcon,
-        url: "/pages/settings",
+        url: "/tenant/settings",
         items: [],
       },
       {
-        title: "Help / FAQ",
+        title: "Help & FAQ",
         icon: Icons.HelpIcon,
         url: "/help",
         items: [],
@@ -54,3 +48,66 @@ export const NAV_DATA = [
     ],
   },
 ];
+
+export const CLINIC_NAV_DATA = [
+  {
+    label: "CLINIC WORKSPACE",
+    items: [
+      {
+        title: "Clinic Dashboard",
+        icon: Icons.HomeIcon,
+        url: "/clinic/dashboard",
+        items: [],
+      },
+      {
+        title: "Incoming Cases",
+        icon: Icons.DownloadIcon,
+        url: "/clinic/incoming",
+        items: [],
+      },
+      {
+        title: "Upload Case",
+        icon: Icons.UploadIcon,
+        url: "/clinic/upload",
+        items: [],
+      },
+      {
+        title: "Active Cases",
+        icon: Icons.CasesIcon,
+        url: "/clinic/active",
+        items: [],
+      },
+      {
+        title: "Messages",
+        icon: Icons.ChatIcon,
+        url: "/clinic/messages",
+        items: [],
+      },
+      {
+        title: "Analytics",
+        icon: Icons.PieChart, // Changed from PieChartIcon to PieChart
+        url: "/clinic/analytics",
+        items: [],
+      },
+    ],
+  },
+  {
+    label: "MANAGEMENT",
+    items: [
+      {
+        title: "Team",
+        icon: Icons.GroupIcon,
+        url: "/clinic/team",
+        items: [],
+      },
+      {
+        title: "Settings",
+        icon: Icons.SecurityIcon,
+        url: "/clinic/settings",
+        items: [],
+      },
+    ],
+  },
+];
+
+export const NAV_DATA = TENANT_NAV_DATA; // Default fallback
